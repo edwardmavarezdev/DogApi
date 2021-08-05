@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body> 
       
     <input id ="linkRandom" type="button" value="random selector">
 
     <select id="selectDog">
-
+        
       </select>
 
     <input id ="summon" type="button" value="get random Dog">
@@ -41,13 +41,13 @@
         pictureDog.src=data.message
             });
         }
-
+        var breeds
         function dogAllBreeds(){
         $.getJSON('https://dog.ceo/api/breeds/list/all', function(data) {
-        breeds = data.message
+        objeto = data.message
+        
             });
         }
-    dogAllBreeds()
 
         function useRace(){
             $.getJSON('https://dog.ceo/api/breed/bulldog/boston/images/random'), function(data){
@@ -56,7 +56,7 @@
             }
         }
         
-        function objectExtraction(objeto){
+        function objectExtraction(){
         races = []
         
 
@@ -82,12 +82,35 @@
                     }
                 }
             }   return races
+        
         }
 
-
-let ss = document.getElementById("selectDog")
+    let ss = document.getElementById("selectDog")
         
+        function selection(){
+            for(i=0 ; i<races.length ; i++){
+                if (races[i].length <3){
+                    ss.innerHTML += "<option>"+races[i][0]+" "+races[i][1]+"</option>"
+                }
+            
+                else{
+                    ss.innerHTML += "<option>"+races[i]+"</option>"
+                }
+            }
+        }
 
+    window.setTimeout(function() {
+    dogAllBreeds();
+    
+        window.setTimeout(function() {
+        objectExtraction();
+        
+            window.setTimeout(function() {
+            selection();
+            }, 50);
+        }, 150); 
+    }, 0);
+ 
     </script>
 </body>
 </html>
