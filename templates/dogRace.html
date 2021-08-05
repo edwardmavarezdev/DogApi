@@ -59,34 +59,36 @@ dogAllBreeds()
     var objeto = {
         uno: "",
         dos:["1234","rewqrewq"],
-        tres: "adsads"
-
-    }
+        tres: "adsads",
+        cuatro:""
+        }
         
         function objectExtraction(objeto){
         races = []
+        
 
-        for (i=0; i<Object.keys(objeto).length; i++){
-            
-            if (objeto[Object.keys(objeto)[i]] == ""){
+            for (i=0; i<Object.keys(objeto).length; i++){
                 
-                races.push(Object.keys(objeto)[i])
-            }
-            else{
-                for (l=0; l<Object.values(objeto)[i].length; l++){
-
-                    if (Object.values(objeto)[i][l].length == 1){
-                    }
+                if (Object.values(objeto)[i] == ""){
                     
-                    else{
+                    races.push(Object.keys(objeto)[i])
+                }
+                
+                else{
+                    for (l=0; l<Object.values(objeto)[i].length; l++){
 
-                    races.push(Object.values(objeto)[i][l])
+                        if (Object.values(objeto)[i][l].length == 1){
+                        }
+
+                        else{
+                        races.push([Object.keys(objeto)[i],Object.values(objeto)[i][l]])
+                        }
+                    }
+                    if (Object.values(objeto)[i][0].length == 1){
+                        races.push([Object.keys(objeto)[i],Object.values(objeto)[i]])
                     }
                 }
-            }
-        }
-        
-            return races
+            }   return races
         }
 
 
