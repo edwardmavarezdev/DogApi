@@ -1,8 +1,5 @@
 from flask import Flask, jsonify
 from flask import render_template
-import requests
-import simplejson 
-import json
 
 
 app = Flask(__name__)
