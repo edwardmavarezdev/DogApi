@@ -44,23 +44,16 @@
 
         function dogAllBreeds(){
         $.getJSON('https://dog.ceo/api/breeds/list/all', function(data) {
-        testa =data.message
+        breeds = data.message
             });
         }
-dogAllBreeds()
+    dogAllBreeds()
 
         function useRace(){
             $.getJSON('https://dog.ceo/api/breed/bulldog/boston/images/random'), function(data){
                 imageRace = data
                 return imageRace
             }
-        }
-
-    var objeto = {
-        uno: "",
-        dos:["1234","rewqrewq"],
-        tres: "adsads",
-        cuatro:""
         }
         
         function objectExtraction(objeto){
@@ -92,9 +85,8 @@ dogAllBreeds()
         }
 
 
-        //let selection = document.getElementById("selectDog")
-        //selection. innerHTML ="<option>rewqrew</option>"
-        //selection.option[0].value = "hello"
+let ss = document.getElementById("selectDog")
+        
 
     </script>
 </body>
