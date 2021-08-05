@@ -8,14 +8,13 @@ import json
 app = Flask(__name__)
 
 
-@app.route("/varUse")
-def testVar():
-    uri = "https://dog.ceo/api/breeds/image/random"
-    uResponse = requests.get(uri)
-    Jresponse = uResponse.text
-    data = json.loads(Jresponse)
-    return render_template('dogTemplate.html', x=data)
+@app.route("/random")
+def main():
+    return render_template('dogTemplate.html')
 
+@app.route("/race")
+def select():
+    return render_template('dogRace.html')
 
 if __name__ == "__main__":
     app.run(debug=True, port= 4000)

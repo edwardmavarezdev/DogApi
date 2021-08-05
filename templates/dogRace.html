@@ -7,8 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+      
+    <input id ="linkRandom" type="button" value="random selector">
 
-    <input id ="linkRace" type="button" value="race selector">
+    <select id="selectDog">
+        <option>Apple</option>
+        <option>Pear</option>
+        <option>Banana</option>
+        <option>Orange</option>
+      </select>
 
     <input id ="summon" type="button" value="get random Dog">
 
@@ -20,18 +27,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
 
-        let changePage = document.getElementById("linkRace")
-        changePage.addEventListener("click", race)
+        let changePage = document.getElementById("linkRandom")
+        changePage.addEventListener("click", random)
 
-        function race(){
-            window.location.href = "/race";
+        function random(){
+            window.location.href = "/random";
         }
 
         let summon = document.getElementById("summon")
         summon.addEventListener("click",dog)
         
         let pictureDog = document.getElementById("randomDog")
-        
         
         function dog(){
         $.getJSON('https://dog.ceo/api/breeds/image/random', function(data) {
