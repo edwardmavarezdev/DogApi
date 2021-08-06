@@ -17,7 +17,7 @@
     <input id ="summon" type="button" value="get random Dog">
 
     <div id="img">
-    <img id = "randomDog" src="" alt="">
+    <img id = "randomRaceDog" src="" alt="">
     </div>
 
 
@@ -32,9 +32,9 @@
         }
 
         let summon = document.getElementById("summon")
-        summon.addEventListener("click",dog)
+        summon.addEventListener("click",testingRace)
         
-        let pictureDog = document.getElementById("randomDog")
+        let pictureDog = document.getElementById("randomRaceDog")
         
         function dog(){
         $.getJSON('https://dog.ceo/api/breeds/image/random', function(data) {
@@ -49,12 +49,13 @@
             });
         }
 
-        function useRace(){
-            $.getJSON('https://dog.ceo/api/breed/bulldog/boston/images/random'), function(data){
+      /*  function useRace(){
+            $.getJSON('https://dog.ceo/api/breed/'+subRace+race+'/images/random'), function(data){
                 imageRace = data
                 return imageRace
             }
-        }
+            //'+race+subRace+'
+        }*/
         
         function objectExtraction(){
         races = []
@@ -74,29 +75,51 @@
                         }
 
                         else{
-                        races.push([Object.keys(objeto)[i],Object.values(objeto)[i][l]])
+                        races.push([Object.values(objeto)[i][l],Object.keys(objeto)[i]])
                         }
                     }
                     if (Object.values(objeto)[i][0].length == 1){
-                        races.push([Object.keys(objeto)[i],Object.values(objeto)[i]])
+                        races.push([Object.values(objeto)[i],Object.keys(objeto)[i]])
                     }
                 }
             }   return races
         }
 
-    let ss = document.getElementById("selectDog")
+    let selectDog = document.getElementById("selectDog")
         
         function selection(){
             for(i=0 ; i<races.length ; i++){
                 if (races[i].length <3){
-                    ss.innerHTML += "<option>"+races[i][0]+" "+races[i][1]+"</option>"
+                    selectDog.innerHTML += "<option>"+races[i][0]+" "+races[i][1]+"</option>"
                 }
             
                 else{
-                    ss.innerHTML += "<option>"+races[i]+"</option>"
+                    selectDog.innerHTML += "<option>"+races[i]+"</option>"
                 }
             }
         }
+
+        function testingRace(){
+
+            dataDogArray=selectDog.value.split(/(\s+)/)
+                    if (dataDogArray.length == 1){
+                        race = dataDogArray[0]
+                        subRace = ""
+                    }
+                    else{
+                        race = dataDogArray[0]
+                        subRaceType = dataDogArray[2]
+                        subRace = ("/"+subRaceType)
+                    }
+
+                $.getJSON('https://dog.ceo/api/breed'+subRace+'/'+race+'/images/random', function(data){
+                    pictureDog.src =data.message               
+                });
+        }
+            
+        
+
+        
 
     window.setTimeout(function() {
     dogAllBreeds();
@@ -106,8 +129,8 @@
         
             window.setTimeout(function() {
             selection();
-            }, 50);
-        }, 150); 
+            }, 0);
+        }, 500); 
     }, 0);
 
     </script>
