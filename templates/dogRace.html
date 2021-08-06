@@ -7,14 +7,12 @@
     <title>Document</title>
 </head>
 <body> 
-      
+    <!--buttons-->
     <input id ="linkRandom" type="button" value="random selector">
 
-    <select id="selectDog">
-        
-      </select>
+    <select id="selectDog"></select>
 
-    <input id ="summon" type="button" value="get random Dog">
+    <input id ="summon" type="button" value="get race Dog">
 
     <div id="img">
     <img id = "randomRaceDog" src="" alt="">
@@ -23,24 +21,29 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-
+    
+    //buttons
         let changePage = document.getElementById("linkRandom")
         changePage.addEventListener("click", random)
 
         function random(){
-            window.location.href = "/random";
+            window.location.href = "/";
         }
 
         let summon = document.getElementById("summon")
-        summon.addEventListener("click",testingRace)
-        
+        summon.addEventListener("click",getRaceDog)
+
+    //space to render picture        
         let pictureDog = document.getElementById("randomRaceDog")
         
+    //function to render dog Image
         function dog(){
         $.getJSON('https://dog.ceo/api/breeds/image/random', function(data) {
         pictureDog.src=data.message
             });
         }
+
+    //function to get list of races and sub races from dog api
         var breeds
         function dogAllBreeds(){
         $.getJSON('https://dog.ceo/api/breeds/list/all', function(data) {
@@ -49,14 +52,7 @@
             });
         }
 
-      /*  function useRace(){
-            $.getJSON('https://dog.ceo/api/breed/'+subRace+race+'/images/random'), function(data){
-                imageRace = data
-                return imageRace
-            }
-            //'+race+subRace+'
-        }*/
-        
+    //function to extract all races and subraces and sort on individuals values for be selected
         function objectExtraction(){
         races = []
         
@@ -84,9 +80,12 @@
                 }
             }   return races
         }
+    
+    //getting selector tag from html
+        let selectDog = document.getElementById("selectDog")
+            
 
-    let selectDog = document.getElementById("selectDog")
-        
+    //function to get the return of extraction and use to put in selector tag
         function selection(){
             for(i=0 ; i<races.length ; i++){
                 if (races[i].length <3){
@@ -99,7 +98,9 @@
             }
         }
 
-        function testingRace(){
+    /*function for identify the selection  in selector tag and
+        and extract his data for get the race dog from api and render*/
+        function getRaceDog(){
 
             dataDogArray=selectDog.value.split(/(\s+)/)
                     if (dataDogArray.length == 1){
@@ -116,22 +117,19 @@
                     pictureDog.src =data.message               
                 });
         }
-            
         
-
-        
-
-    window.setTimeout(function() {
-    dogAllBreeds();
-    
+    //promises for correct template render
         window.setTimeout(function() {
-        objectExtraction();
+        dogAllBreeds();
         
             window.setTimeout(function() {
-            selection();
-            }, 0);
-        }, 500); 
-    }, 0);
+            objectExtraction();
+            
+                window.setTimeout(function() {
+                selection();
+                }, 0);
+            },1000); 
+        }, 0);
 
     </script>
 </body>

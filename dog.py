@@ -5,7 +5,7 @@ from flask import render_template
 app = Flask(__name__)
 
 
-@app.route("/random")
+@app.route("/")
 def main():
     return render_template('dogTemplate.html')
 
