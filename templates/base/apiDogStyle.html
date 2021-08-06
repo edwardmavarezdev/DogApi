@@ -1,0 +1,43 @@
+
+{% extends 'base/base.html'%}
+
+    {% block style %}
+        <style>
+            body{
+                background-color:rgb(177, 255, 229);
+            }
+            #buttons,.text{
+                display: flex;
+                justify-content: center;
+            }
+
+            .text{font-size: 20px;}
+
+            #linkRace,#linkRandom{
+                background-color:rgb(209, 140, 140);
+            }
+
+            #summon{
+                background-color: blueviolet;
+            }
+
+            #selectDog{
+                background-color: rgb(255, 80, 80);
+            }
+
+            #linkRace,#linkRandom,#summon,#selectDog{
+                margin: 10px;
+                font-size: 20px;
+            }
+
+            #img,#randomDog,#randomRaceDog{
+                width: 350px;
+                background-color: rgb(194, 194, 194);
+                margin:auto;
+            }
+            #img{
+                height: 200px;
+            }
+
+        </style>
+    {% endblock %}
