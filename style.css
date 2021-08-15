@@ -1,0 +1,45 @@
+body{
+    background-color:rgb(177, 255, 229);
+}
+#buttons,.text{
+    display: flex;
+    justify-content: center;
+}
+
+.text{font-size: 20px;}
+
+#link{
+    background-color:rgb(209, 140, 140);
+}
+
+#summon{
+    background-color: blueviolet;
+}
+
+#selectDog{
+    background-color: rgb(255, 80, 80);
+}
+
+#link,#summon,#selectDog{
+    margin: 10px;
+    font-size: 20px;
+}
+
+#img,#randomDog{
+    width: 350px;
+    background-color: rgb(194, 194, 194);
+    margin:auto;
+}
+#img{
+    height: 200px;
+}
+
+#loadingPicture{
+    vertical-align: middle;
+    
+}
+#loadingPicture p{
+    text-align: center;
+    padding: 26%;
+    
+}
