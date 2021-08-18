@@ -6,6 +6,7 @@
     let loading =document.getElementById("loadingPicture")
 
     function change(){
+        pictureDog.style=""
         if(changePage.value =="Race Selector"){
             changePage.value = "Random Selector"
             summon.value = "Get Race Dog"
@@ -72,6 +73,7 @@
                         loading.innerHTML = "";     
                     });
         }
+        pictureDog.style="border: solid 2px white;"
     }
 
 

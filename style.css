@@ -1,19 +1,49 @@
-body{
-    background-color:rgb(177, 255, 229);
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px
 }
+
+body{
+    width: 97%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    background-color: black;
+    margin-left: 1%;
+}
+.backDog{
+    background-image: url(backDog.png);
+    height: 140%;
+    position: absolute;
+    width: 103%;
+    z-index: -1;
+    opacity: 0.5;
+    background-position: center;
+    background-attachment: fixed;
+    margin-left: -1%;
+}
+
 #buttons,.text{
     display: flex;
     justify-content: center;
 }
 
-.text{font-size: 20px;}
-
-#link{
-    background-color:rgb(209, 140, 140);
+.text{
+    font-size: 20px;
+    color:white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-#summon{
-    background-color: blueviolet;
+#link,#summon{
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#link{
+    background-color: #000000;
+    color:white;
 }
 
 #selectDog{
@@ -27,9 +57,11 @@ body{
 
 #img,#randomDog{
     width: 350px;
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(170, 170, 170);
     margin:auto;
+    display: flex;
 }
+
 #img{
     height: 200px;
 }
@@ -40,6 +72,51 @@ body{
 }
 #loadingPicture p{
     text-align: center;
-    padding: 26%;
+    margin-left:83px;
+    margin-top: 80px;
+    width: 120%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+}
+
+#lateral{
+    background-color: rgba(46, 46, 46, 0.5);
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 1%;
+
+}
+
+#lateral img{
     
+    margin-bottom: 0px;
+}
+
+#lateral p{
+    margin:15px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1{
+    margin: 10px;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#link, #summon, #selectDog{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+    #link, #summon,#selectDog, .text, #buttons{
+        display:block;
+        margin: auto;
+        margin-bottom: 15px;
+        text-align: center;
+    }
 }
